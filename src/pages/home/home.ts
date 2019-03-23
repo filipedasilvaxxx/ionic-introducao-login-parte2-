@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, IonicPage } from 'ionic-angular';
+import { NavController, IonicPage, AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -8,8 +8,38 @@ import { NavController, IonicPage } from 'ionic-angular';
 @IonicPage()
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  nomes : any[] = [
+    { 'nome' : 'Manuel'},
+    { 'nome' : 'Ana'},
+    { 'nome' : 'Mônica'},
+    { 'nome' : 'Carlos'},
+    { 'nome' : 'Patrícia'},
+
+  ];
+
+  constructor(public navCtrl: NavController, 
+    public alertCtrl: AlertController) {
 
   }
 
+    olaMundo(){
+      console.log('olá Mundo Mobile!');
+      this.showAlert();
+    }
+
+    irParaTeste(){
+      //this.navCtrl.push('TesteIonicPage');
+      this.navCtrl.setRoot('TesteIonicPage');
+    }
+
+    showAlert() {
+      const alert = this.alertCtrl.create({
+        title: 'New Friend!',
+        subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
+        buttons: ['OK']
+      });
+      alert.present();
+    }
+
+   
 }
