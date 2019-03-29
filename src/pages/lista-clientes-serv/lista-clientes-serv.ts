@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FilmeService } from '../../services/filme.service';
 import { Cliente } from '../../model/cliente';
+import { ClienteService } from '../../services/cliente.service';
 
 /**
  * Generated class for the ListaClientesServPage page.
@@ -21,11 +22,11 @@ export class ListaClientesServPage {
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
-    public FilmeServ: FilmeService) {
+    public ClienteServ: ClienteService) {
   }
 
   ionViewDidLoad() {
-    this.FilmeServ.listaDeClientes().subscribe(response=>{
+    this.ClienteServ.listaDeClientes().subscribe(response=>{
       this.clientes = response;
       console.log(this.clientes)
     }, error=>{

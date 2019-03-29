@@ -3,12 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FilmeService } from '../../services/filme.service';
 import { Filme } from '../../model/filme';
 
-/**
- * Generated class for the ListaFilmesServPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
