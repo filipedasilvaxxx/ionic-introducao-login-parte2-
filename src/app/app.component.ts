@@ -27,7 +27,9 @@ export class MyApp {
       {title: 'Contate', component: 'FormContatePage'},
       {title: 'Lista Filmes', component: 'ListaFilmesServPage'},
       {title: 'Lista Clientes', component: 'ListaClientesServPage'},
-      {title: 'Buasca Endereco', component: 'BuascaEnderecoPage'}
+      {title: 'Buasca Endereco', component: 'BuscaEnderecoPage'},
+      {title: 'Notícias', component: 'ListaNoticiaServPage'}
+
     ];
 
   }

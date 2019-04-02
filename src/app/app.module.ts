@@ -11,6 +11,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { FilmeService } from '../services/filme.service';
 import { ClienteService } from '../services/cliente.service';
 import { EnderecoService } from '../services/endereco.service';
+import { NoticiaService } from '../services/noticia.service';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { EnderecoService } from '../services/endereco.service';
     FilmeService,
     ClienteService,
     EnderecoService,
+    NoticiaService,
 
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Notícias</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content padding>
+
+    <ion-card *ngFor="let f of noticias"> 
+        <img src="{{f.imagem}}"/>
+        <ion-card-content>
+          <ion-card-title>
+            {{f.titulo}}
+            </ion-card-title>
+          <p>
+           {{f.conteudo}}
+          </p>
+        </ion-card-content>
+        <ion-row no-padding>
+          
+            <ion-col text-right>
+              <button ion-button clear small color="primary" icon-start>
+                <ion-icon name='share-alt'></ion-icon>
+                Compartilhar
+              </button>
+            </ion-col>
+          </ion-row>
+      </ion-card>
+
+</ion-content>

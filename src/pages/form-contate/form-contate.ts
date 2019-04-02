@@ -26,9 +26,7 @@ export class FormContatePage {
       mensagem: ['',[Validators.required]]
     });
   }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FormContatePage');
-  }
+ 
 
   enviarMensagem(){
     console.log(this.formGroup.value);
