@@ -19,6 +19,10 @@ export class HomePage {
 
   }
 
+  ionViewDiload(){
+    this.menu.enable(false);
+  }
+
   login(){
     this.fireAuth.auth.signInWithEmailAndPassword(this.email.value, this.senha.value)
     .then(()=>{

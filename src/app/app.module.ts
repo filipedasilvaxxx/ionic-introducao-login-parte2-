@@ -5,6 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+
+
+
 
 import { MyApp } from './app.component';
 
@@ -12,6 +17,7 @@ import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { firebaseConfig } from '../config/firebase.config';
+import { ClienteService } from '../service/cliente.service';
 
 
 @NgModule({
@@ -24,7 +30,11 @@ import { firebaseConfig } from '../config/firebase.config';
     IonicModule.forRoot(MyApp),
     HttpClientModule,
     // configuração do servidor (firebase.config.ts)
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireStorageModule
+    
+
 
   ],
   bootstrap: [IonicApp],
@@ -36,9 +46,7 @@ import { firebaseConfig } from '../config/firebase.config';
     StatusBar,
     SplashScreen,
     AngularFireAuth, // Serviço de autenticação(Authentication)
-
-    
-
+    ClienteService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

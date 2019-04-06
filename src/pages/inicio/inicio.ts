@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { Cliente } from '../../model/cliente';
+import firebase from 'firebase';
+import { ClienteService } from '../../service/cliente.service';
 
 /**
  * Generated class for the InicioPage page.
@@ -14,12 +17,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'inicio.html',
 })
 export class InicioPage {
+  listaDeClientes : Cliente[] = [];//<--
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public menu : MenuController,
+    public clienteServ : ClienteService) {
+
   }
+
+  
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad InicioPage');
+    this.menu.enable(true);
+    this.listaDeClientes = this.clienteServ.getList();
+
   }
+
+ 
 
 }

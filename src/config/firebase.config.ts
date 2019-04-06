@@ -1,8 +1,8 @@
 export const firebaseConfig = {
-    apiKey: "AIzaSyAGyKcuR5RN2JRGHajGQV4tC40VLYXcu1Q",
-    authDomain: "ppauem-47190.firebaseapp.com",
-    databaseURL: "https://ppauem-47190.firebaseio.com",
-    projectId: "ppauem-47190",
-    storageBucket: "ppauem-47190.appspot.com",
-    messagingSenderId: "817653533946"
-};
+    apiKey: "AIzaSyBh1XwpjY2w_WYx9d6OvFhFhJYlG9DT0E4",
+    authDomain: "projeto2-895af.firebaseapp.com",
+    databaseURL: "https://projeto2-895af.firebaseio.com",
+    projectId: "projeto2-895af",
+    storageBucket: "projeto2-895af.appspot.com",
+    messagingSenderId: "429058088500"
+  };
