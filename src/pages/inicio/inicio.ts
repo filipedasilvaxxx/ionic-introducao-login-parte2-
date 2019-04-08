@@ -35,6 +35,9 @@ export class InicioPage {
 
   }
 
+  novocliente(){
+    this.navCtrl.push('NovoClientePage')
+  }
  
 
 }
