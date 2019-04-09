@@ -29,6 +29,9 @@
         <ion-card-content>
             <ion-icon name="mail"></ion-icon>{{cliente?.email}}          
             <ion-icon name="call"></ion-icon> {{cliente?.telefone}}
+            <button ion-button full (click)="remove(cliente)">Remover cliente</button>
+            <button ion-button full (click)="atualiza(cliente)">Atualizar</button>
+
 
         </ion-card-content>
       

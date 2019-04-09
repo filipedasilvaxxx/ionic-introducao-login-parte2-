@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import firebase from 'firebase';
 
 
 @IonicPage()
@@ -10,9 +11,18 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class NovoClientePage {
 
+  formGroup : FormGroup;
+  
+  firestore = firebase.firestore();
+  settings = {timestampsInSnapshots: true};
+
+
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     public formBuilder : FormBuilder) {
+
+      this.firestore.settings(this.settings); 
+
       this.formGroup = this.formBuilder.group({
         nome : [''],
         telefone : [''],
@@ -20,10 +30,17 @@ export class NovoClientePage {
       })
   }
 
-  formGroup : FormGroup;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NovoClientePage');
+
+  cadastrar(){
+    let ref = this.firestore.collection('cliente')
+    ref.add(this.formGroup.value)
+      .then(() =>{
+        console.log('Cadastrado com sucesso');
+        this.navCtrl.setRoot('InicioPage');
+      }).catch(()=>{
+        console.log('Erro ao cadastrar');
+      })
+      
   }
-
 }

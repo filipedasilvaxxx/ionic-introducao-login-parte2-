@@ -24,6 +24,7 @@ export class ClienteService{
                 // "doc" -> Armagena um objeto de "query"
             let c = new Cliente(); // criando um objeto
             c.setDados(doc.data());// pega o obj firebase (any) e transforma para obj Clientes
+            c.id = doc.id;
             listaDeClientes.push(c);// pego o obj Cliente e adiciono na lista
             console.log(listaDeClientes);
           });
