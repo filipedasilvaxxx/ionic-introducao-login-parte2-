@@ -29,6 +29,7 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: 'HomePage' },
       { title: 'Logoff', component: 'LogoffPage' },
+      { title: 'Lista de produto', component: 'ListaProdutoPage' },
 
 
 
@@ -58,6 +59,7 @@ export class MyApp {
       }
     );
 
+    
   }
 
   openPage(page) {

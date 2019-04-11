@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
-import { Cliente } from '../../model/cliente';
 import firebase from 'firebase';
-import { ClienteService } from '../../service/cliente.service';
+import { Produto } from '../../model/produto';
 
 /**
- * Generated class for the InicioPage page.
+ * Generated class for the ListaProdutoPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -13,38 +12,38 @@ import { ClienteService } from '../../service/cliente.service';
 
 @IonicPage()
 @Component({
-  selector: 'page-inicio',
-  templateUrl: 'inicio.html',
+  selector: 'page-lista-produto',
+  templateUrl: 'lista-produto.html',
 })
-export class InicioPage {
-  listaDeClientes : Cliente[] = [];//<--
+export class ListaProdutoPage {
+
+  listaDeProdutos : Produto[] = [];//<--
 
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
-    public menu : MenuController
-    //public clienteServ : ClienteService
-  ) {
-
+    public menu : MenuController ) {
   }
+  
 
   getList() {
 
-    var ref = firebase.firestore().collection("cliente");
+    var ref = firebase.firestore().collection("produto");
     ref.get().then(query => {
         query.forEach(doc => {
-            let c = new Cliente();
+            let c = new Produto();
             c.setDados(doc.data());
             c.id = doc.id;
-            this.listaDeClientes.push(c);
+            this.listaDeProdutos.push(c);
         });
     });
 
   }
-
+  
 
   ionViewDidLoad() {
     this.menu.enable(true);
+    //this.listaDeClientes = this.clienteServ.getList();
     this.getList();
 
   }
@@ -52,27 +51,23 @@ export class InicioPage {
  
   
 
-  novocliente(){
-    this.navCtrl.push('NovoClientePage')
+  novoProduto(){
+    this.navCtrl.push('NovoProdutoPage')
   }
 
-  remove(obj : Cliente){
-    var ref = firebase.firestore().collection("cliente");
+  remove(obj : Produto){
+    var ref = firebase.firestore().collection("produto");
     ref.doc(obj.id).delete()
       .then(()=>{
-        this.listaDeClientes = [];
+        this.listaDeProdutos = [];
         this.getList();
       }).catch(()=>{
         console.log('Erro ao atualizar');
       })
 
   }
-  atualiza(obj : Cliente){
-    this.navCtrl.push('ClienteVisualizaPage', {'cliente': obj})
+  atualiza(obj : Produto){
+    this.navCtrl.push('ProdutoVisualizaPage', {'produto': obj})
 
   }
-
- 
- 
-
 }

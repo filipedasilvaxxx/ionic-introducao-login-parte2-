@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireStorageModule, AngularFireStorage } from 'angularfire2/storage';
 
 
 
@@ -47,6 +47,7 @@ import { ClienteService } from '../service/cliente.service';
     SplashScreen,
     AngularFireAuth, // Serviço de autenticação(Authentication)
     ClienteService,
+    AngularFireStorage,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

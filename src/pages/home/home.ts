@@ -19,7 +19,7 @@ export class HomePage {
 
   }
 
-  ionViewDiload(){
+  ionViewDidLoad(){
     this.menu.enable(false);
   }
 

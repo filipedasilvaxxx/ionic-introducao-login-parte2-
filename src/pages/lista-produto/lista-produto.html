@@ -1,0 +1,42 @@
+<!--
+  Generated template for the ListaProdutoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+      <button ion-button menuToggle right>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>Lista de Produtos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    
+    <button ion-button  outline full (click)="novoProduto()">Novo produto</button>
+
+    <ion-card *ngFor="let produto of listaDeProdutos">
+
+        <ion-card-header>
+          {{produto?.nomeProduto}}
+        </ion-card-header>
+      
+        <ion-card-content>
+            <ion-icon name="cash"></ion-icon>{{produto?.preco}}          
+            <ion-icon name="call"></ion-icon> {{produto?.categoria}}
+            <ion-icon name="call"></ion-icon> {{produto?.descricao}}
+
+            <button ion-button full (click)="remove(produto)">Remover produto</button>
+            <button ion-button full (click)="atualiza(produto)">Atualizar</button>
+
+
+        </ion-card-content>
+      
+      </ion-card>
+
+</ion-content>

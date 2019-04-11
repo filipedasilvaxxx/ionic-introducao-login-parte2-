@@ -24,6 +24,8 @@ export class ClienteVisualizaPage {
     settings = {timestampsInSnapshots: true};
     cliente = new Cliente();
 
+    imagem : string = "";
+
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     public formBuilder : FormBuilder) {
@@ -39,6 +41,10 @@ export class ClienteVisualizaPage {
 
   }
 
+  ionViewDidLoad(){
+    this.downloadFoto();
+  }
+
   atualizar(){
     let ref = this.firestore.collection('cliente')
     ref.doc(this.cliente.id).set(this.formGroup.value)
@@ -50,6 +56,29 @@ export class ClienteVisualizaPage {
       })
   }
 
+  enviaArquivo(event){
+    let imagem = event.srcElement.files[0];
+    //console.log(imagem.name);
+    let ref = firebase.storage().ref()
+                    .child(`clientes/${this.cliente.id}.jpg`);
+    ref.put(imagem).then(url=>{
+      console.log('Enviado com Sucesso')
+      this.downloadFoto();
+
+    })
+
+  }
+
+  downloadFoto(){
+    let ref = firebase.storage().ref()
+    .child(`clientes/${this.cliente.id}.jpg`);
+
+  ref.getDownloadURL().then( url =>{
+    this.imagem = url;
+    
+    //console.log(url);
+  })
+  }
  
 
 }
