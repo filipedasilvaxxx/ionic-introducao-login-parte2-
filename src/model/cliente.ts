@@ -3,6 +3,7 @@ export class Cliente{
     nome : string;
     telefone : string;
     email : string;
+    img : string;
 
     // Dados do firebase
     setDados(obj : any){

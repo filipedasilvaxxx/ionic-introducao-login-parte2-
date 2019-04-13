@@ -21,10 +21,14 @@
     <button ion-button  outline full (click)="novocliente()">Novo cliente</button>
 
     <ion-card *ngFor="let cliente of listaDeClientes">
-
-        <ion-card-header>
-          {{cliente?.nome}}
-        </ion-card-header>
+      <ion-list>
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="{{cliente?.img}}">
+          </ion-avatar>
+          <h2>{{cliente?.nome}}</h2>
+        </ion-item>
+      </ion-list>
       
         <ion-card-content>
             <ion-icon name="mail"></ion-icon>{{cliente?.email}}          

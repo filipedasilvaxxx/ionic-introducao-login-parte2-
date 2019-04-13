@@ -3,13 +3,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import firebase from 'firebase';
 import { Cliente } from '../../model/cliente';
+import { Injectable } from "@angular/core";
 
-/**
- * Generated class for the ClienteVisualizaPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
+
 
 @IonicPage()
 @Component({
@@ -56,6 +53,7 @@ export class ClienteVisualizaPage {
       })
   }
 
+  
   enviaArquivo(event){
     let imagem = event.srcElement.files[0];
     //console.log(imagem.name);

@@ -1,0 +1,38 @@
+
+<ion-header>
+  <ion-navbar>
+      <button ion-button menuToggle right>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>Lista de Livros</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    
+    <button ion-button  outline full (click)="novolivro()">Novo livro</button>
+
+    <ion-card *ngFor="let livro of listaDeLivros">
+      <ion-list>
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="{{livro?.img}}">
+          </ion-thumbnail>
+          <h2>{{livro?.titulo}}</h2>
+          <p>{{livro?.autor}}</p>
+          <p>{{livro?.preco}}</p>
+          <p>{{livro?.resumo}}</p>
+          <button ion-button clear item-end>View</button>
+          <button ion-button clear  (click)="remove(livro)">remover</button>
+          <button ion-button clear  (click)="atualiza(livro)">Atualizar</button>
+        </ion-item>
+      </ion-list>  
+      
+     
+      
+      </ion-card>
+
+</ion-content>

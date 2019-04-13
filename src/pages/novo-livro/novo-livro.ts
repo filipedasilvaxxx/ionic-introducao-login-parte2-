@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import firebase from 'firebase';
 
 /**
- * Generated class for the NovoProdutoPage page.
+ * Generated class for the NovoLivroPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -12,16 +12,17 @@ import firebase from 'firebase';
 
 @IonicPage()
 @Component({
-  selector: 'page-novo-produto',
-  templateUrl: 'novo-produto.html',
+  selector: 'page-novo-livro',
+  templateUrl: 'novo-livro.html',
 })
-export class NovoProdutoPage {
+export class NovoLivroPage {
 
   formGroup : FormGroup;
   
   firestore = firebase.firestore();
   settings = {timestampsInSnapshots: true};
 
+  imagem: string = "";
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
@@ -30,10 +31,10 @@ export class NovoProdutoPage {
       this.firestore.settings(this.settings); 
 
       this.formGroup = this.formBuilder.group({
-        nomeProduto : [''],
+        titulo : [''],
+        autor : [''],
         preco : [],
-        categoria : [''],
-        descricao : ['']
+        resumo : [''],
       })
   }
 
@@ -50,6 +51,7 @@ export class NovoProdutoPage {
       })
       
   }
+
+ 
+
 }
-
-
